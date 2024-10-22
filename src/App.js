@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import ClockContainer from "./components/ClockContainer";
+import TypedDisplay from "./components/TypedDisplay";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App font-quicksand w-full">
+      <section className="h-lvh w-full bg-primaryLight">
+      <Header />
+      <main className=" bg-primaryLight w-full">
+      <ClockContainer />
+      </main>
+      </section>
+
+          
+      
+
     </div>
   );
 }
