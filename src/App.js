@@ -1,12 +1,26 @@
 import Header from "./components/Header";
 import ClockContainer from "./components/ClockContainer";
-import TypedDisplay from "./components/TypedDisplay";
+import SettingsModal from "./components/SettingsModal";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleSettings } from "./Redux/slices/settingsSlice";
 
 
 
 function App() {
+  const dispatch = useDispatch();
+  const isSettingsShowing = useSelector((state) => state.settings.settingsShowing)
+
+  function handleClick(){
+    if(isSettingsShowing){
+      dispatch(toggleSettings("false"))
+    }
+  }
+
   return (
-    <div className="App font-quicksand w-full">
+    <div
+     onClick={handleClick}
+     className="App font-quicksand w-full">
+      <SettingsModal />
       <section className="h-lvh w-full bg-primaryLight">
       <Header />
       <main className=" bg-primaryLight w-full">

@@ -6,9 +6,13 @@ const initialState = {
 
 const settingsSlice = createSlice({
     name: "settings",
+    initialState,
     reducers: {
     toggleSettings: (state, action) => {
-        state.settingsShowing = !state.settingsShowing;
+        state.settingsShowing = action.payload
     }
     },
 })
+
+export const { toggleSettings } = settingsSlice.actions;
+export default settingsSlice.reducer;

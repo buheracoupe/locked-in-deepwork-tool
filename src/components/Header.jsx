@@ -3,7 +3,15 @@ import logo from "../Assets/Locked In logos and fonts/locked-in-high-resolution-
 import { CiCoffeeCup } from "react-icons/ci";
 import { IoSettings } from "react-icons/io5";
 import TypedDisplay from './TypedDisplay';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleSettings } from '../Redux/slices/settingsSlice';
+
+
+
 function Header() {
+  const isSettingsShowing = useSelector((state) => state.settings.settingsShowing);
+  const dispatch = useDispatch();
+
   return (
     <div className="container grid place-content-center min-w-full bg-white py-2">
     <div className="logo-container mx-auto w-full bg-white flex gap-4">
@@ -15,12 +23,13 @@ function Header() {
         </div>
         
         <div className="buttons flex gap-2">
-        <div className='bg-secondaryDark items-center text-white cursor-pointer hover:bg-primaryLight rounded-lg flex gap-2 justify-between p-2'>
-        <IoSettings className='text-white text-2xl' />
+        <div onClick={() => dispatch(toggleSettings("true"))} 
+        className='bg-secondaryDark items-center text-white cursor-pointer hover:bg-primaryLight hover:text-black hover:font-semibold rounded-lg flex gap-2 justify-between p-2'>
+        <IoSettings className='text-2xl' />
           <p>Settings</p>
           </div>
-          <div className="coffee bg-secondaryDark cursor-pointer flex items-center hover:bg-primaryLight text-white rounded-lg gap-2 justify-between p-2">
-            <CiCoffeeCup className='text-white text-2xl' />
+          <div className="coffee bg-secondaryDark cursor-pointer flex items-center hover:bg-primaryLight hover:text-black hover:font-semibold text-white rounded-lg gap-2 justify-between p-2">
+            <CiCoffeeCup className=' text-2xl' />
             <p>Buy Me a Coffee</p>
           </div>
           </div>
