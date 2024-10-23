@@ -11,6 +11,10 @@
   margin: 0;
   padding: 0;
 }
-hello{
-    color: #e8d4c14f
-}
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }

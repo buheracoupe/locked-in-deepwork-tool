@@ -12,7 +12,7 @@ function App() {
 
   function handleClick(){
     if(isSettingsShowing){
-      dispatch(toggleSettings("false"))
+      dispatch(toggleSettings(false))
     }
   }
 
@@ -27,10 +27,7 @@ function App() {
       <ClockContainer />
       </main>
       </section>
-
-          
-      
-
+    {isSettingsShowing && <div className="overlay fixed left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] "></div>}
     </div>
   );
 }
