@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     settingsShowing: false,
-    focusMinutes: 60,
+    focusMinutes: 90,
     restMinutes: 15,
 }
 

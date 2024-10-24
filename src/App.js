@@ -3,6 +3,7 @@ import ClockContainer from "./components/ClockContainer";
 import SettingsModal from "./components/SettingsModal";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleSettings } from "./Redux/slices/settingsSlice";
+import FaqSection from "./components/FaqSection"
 
 
 
@@ -28,6 +29,7 @@ function App() {
       </main>
       </section>
     {isSettingsShowing && <div className="overlay fixed left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] "></div>}
+    <FaqSection />
     </div>
   );
 }

@@ -15,7 +15,6 @@ function ClockContainer() {
     const [totalSeconds, setTotalSeconds] = useState(0)
     const [displayTime, setDisplayTime] = useState({})
 
-    // onMount useEffect
     useEffect(()=>{
        if(switchState === "off"){
         if(currentSplit === "focus"){
@@ -47,21 +46,24 @@ function ClockContainer() {
             secondsRemaining = `0${secondsRemaining}`
         }
         let intervalId
-
+        if(totalSeconds >= 0){
         if(timerState && switchState === "on"){
            intervalId = setInterval(() => {
             setDisplayTime({
                 minutes: minutesRemaining,
                 seconds: secondsRemaining
             })
+            document.title = `Timer Status ${minutesRemaining}:${secondsRemaining}`
             setTotalSeconds(totalSeconds - 1)
            },1000)  
+        }}else{
+            currentSplit === "focus"? setTotalSeconds(userFocusTime*60) : setTotalSeconds(userRestTime*60)
+            dispatch(toggleTimer(false))
+            dispatch(toggleSwitch("off"))
         }
 
         return () => clearInterval(intervalId)
     }, [timerState, totalSeconds, switchState])
-
-
 
 
   return (
@@ -87,14 +89,9 @@ function ClockContainer() {
             "bg-none text-white opacity-70 p-2 font-semibold w-24 text-xl"
          }>Rest</button>
         </div>
-        <div className="time">
-
-             { currentSplit === "focus" ?
-              <p className='text-white text-8xl md:text-9xl w-[350px] text-left font-semibold'>
-                {displayTime.minutes}:{displayTime.seconds}</p> :
-              <p className='text-white text-8xl md:text-9xl w-[350px] text-center font-semibold'>
-                {displayTime.minutes}:{displayTime.seconds}</p> }
-
+        <div className='text-white text-8xl flex items-center justify-center gap-1 md:text-9xl w-[350px] text-center font-semibold'>
+            <p>{displayTime.minutes}:</p>
+            <p className='w-32'>{displayTime.seconds}</p>
         </div>
         <div
         onClick={
@@ -105,7 +102,7 @@ function ClockContainer() {
         } 
         className="buttons">
             <button className='bg-white text-secondaryDark p-2 font-semibold mx-auto w-36 text-2xl md:text-3xl rounded-md'>
-                {timerState? "Pause": "Start"}
+                {timerState && switchState === "on"? "Pause": "Start"}
             </button>
         </div>
     </div>

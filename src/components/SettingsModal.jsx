@@ -4,19 +4,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleSettings, setTime } from '../Redux/slices/settingsSlice';
 import { useForm } from 'react-hook-form';
 import { IoCloseCircleSharp } from "react-icons/io5";
+import { toggleSwitch } from '../Redux/slices/timerSlice';
+import { toggleTimer } from '../Redux/slices/timerSlice';
 
 function SettingsModal() { 
-const {register, handleSubmit, getValues} = useForm();
+const {register, handleSubmit} = useForm();
 const dispatch = useDispatch();
 const isSettingsShowing = useSelector((state) => state.settings.settingsShowing)
+const {focusMinutes, restMinutes} = useSelector((state) => state.settings)
 
 if(!isSettingsShowing) return;
 
 function onSubmit(data, event){
     event.preventDefault()
-    console.log(data)
     dispatch(setTime(data))
     dispatch(toggleSettings(false))
+    dispatch(toggleSwitch("off"))
+    dispatch(toggleTimer(false))
 }
 
   return (
@@ -38,7 +42,7 @@ function onSubmit(data, event){
                 <div className='flex flex-col items-center gap-2'>
                 <label htmlFor="focus-time">Focus Time:</label>
                 <input
-                    defaultValue={70}
+                    defaultValue={focusMinutes}
                     min={0}
                     id='focus-time'
                     {...register("focusTime")}
@@ -48,7 +52,7 @@ function onSubmit(data, event){
                <div className='flex flex-col items-center gap-2'>
                <label htmlFor="rest-time">Rest Time:</label>
                 <input
-                    defaultValue={15}
+                    defaultValue={restMinutes}
                     min={0}
                     id='rest-time'
                     {...register("restTime")}

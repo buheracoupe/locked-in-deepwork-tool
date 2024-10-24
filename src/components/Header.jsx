@@ -5,14 +5,21 @@ import { IoSettings } from "react-icons/io5";
 import TypedDisplay from './TypedDisplay';
 import { useDispatch } from 'react-redux';
 import { toggleSettings } from '../Redux/slices/settingsSlice';
-
+import { LiaQuestionSolid } from "react-icons/lia";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 
 function Header() {
   const dispatch = useDispatch();
 
   return (
-    <div className="container grid place-content-center min-w-full bg-white py-2">
+    <div className="container grid place-content-center min-w-full bg-white relative py-2">
+      <AnchorLink href='#faqSection'>
+        <div className="faq absolute flex cursor-pointer right-8 items-center top-8">
+          <p className='underline text-2xl text-secondaryDark'>FAQ</p>
+          <LiaQuestionSolid className='text-secondaryDark text-3xl' />
+        </div>
+      </AnchorLink>
     <div className="logo-container mx-auto w-full bg-white flex gap-4">
       <img src={logo} className='h-28 object-contain' alt="Locked In logo" />
       <div className="flex gap-4 items-center">
