@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { motion, AnimatePresence } from 'framer-motion';
 
 
 const faqArray = [
@@ -58,11 +59,18 @@ function FaqSection() {
                   { activeQuestion.question === faq.id && activeQuestion.showing ?
                   <IoIosArrowUp className='text-secondaryDark text-2xl bg-primaryLight p-1 rounded-full' />:
                   <IoIosArrowDown className='text-secondaryDark text-2xl bg-primaryLight p-1 rounded-full' />
-
                 }
-                  
                   </div>
-                  <p className={ activeQuestion.question === faq.id && activeQuestion.showing ? "text-SecondaryDark p-2" : "hidden"}>{faq.answer}</p>
+                  <AnimatePresence >
+                  { activeQuestion.showing && activeQuestion.question === faq.id &&
+                  <motion.div
+                    initial = {{opacity: 0, height: 0}}
+                    animate={{opacity:1, height: "auto"}}
+                    exit={{opacity: 0, height: 0}} >
+                  <p>{faq.answer}</p>
+                  </motion.div>}
+                  </AnimatePresence>
+                 
                 </div>
               )
             })
