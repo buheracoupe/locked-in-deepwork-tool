@@ -38,11 +38,11 @@ function onSubmit(data, event){
                 <div className='flex flex-col items-center gap-2'>
                 <label htmlFor="focus-time">Focus Time:</label>
                 <input
-                    defaultValue={60}
+                    defaultValue={70}
                     min={0}
                     id='focus-time'
                     {...register("focusTime")}
-                    className='bg-[#e8d4c14f] placeholder:text-black w-20 text-center h-12 rounded-md'
+                    className='bg-[#e8d4c14f] focus:outline-secondaryDark placeholder:text-black w-20 text-center h-12 rounded-md'
                      type="number" />
                 </div>
                <div className='flex flex-col items-center gap-2'>
@@ -52,7 +52,7 @@ function onSubmit(data, event){
                     min={0}
                     id='rest-time'
                     {...register("restTime")}
-                    className='bg-[#e8d4c14f] w-20 text-center placeholder:text-black h-12 rounded-md'
+                    className='bg-[#e8d4c14f] w-20 focus:outline-secondaryDark text-center placeholder:text-black h-12 rounded-md'
                     type="number" />
                 </div>
                 

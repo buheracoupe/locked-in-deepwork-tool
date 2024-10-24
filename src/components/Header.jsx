@@ -23,11 +23,11 @@ function Header() {
         
         <div className="buttons flex gap-2">
         <div onClick={() => dispatch(toggleSettings(true))} 
-        className='bg-secondaryDark items-center text-white cursor-pointer hover:bg-primaryLight hover:text-black hover:font-semibold rounded-lg flex gap-2 justify-between p-2'>
+        className='bg-secondaryDark items-center text-white cursor-pointer w-28 hover:bg-primaryLight hover:text-black hover:font-semibold rounded-lg flex gap-2 justify-between p-2'>
         <IoSettings className='text-2xl' />
           <p>Settings</p>
           </div>
-          <div className="coffee bg-secondaryDark cursor-pointer flex items-center hover:bg-primaryLight hover:text-black hover:font-semibold text-white rounded-lg gap-2 justify-between p-2">
+          <div className="coffee bg-secondaryDark cursor-pointer flex items-center w-[175px] hover:bg-primaryLight hover:text-black hover:font-semibold text-white rounded-lg gap-2 justify-between p-2">
             <CiCoffeeCup className=' text-2xl' />
             <p>Buy Me a Coffee</p>
           </div>
