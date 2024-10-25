@@ -37,7 +37,7 @@ You may also see any lint errors in the console.
 
 
 ## How it is Built
-This project leverages React's power, enhanced by a suite of tools for a dynamic user experience. React-typed animates text, Framer Motion adds life to the FAQ section, and AnchorLink ensures smooth scrolling between sections. While Context API could suffice for state management, Redux Toolkit was chosen for practical learning and potential complex state scenarios. Logos were generated using the freemium service logo.com.
+This project leverages React's power, enhanced by a suite of tools for a dynamic user experience. React-typed animates text, Framer Motion adds life to the FAQ section, and AnchorLink ensures smooth scrolling between sections. While Context API could suffice for state management, Redux Toolkit was chosen for practical learning and potential complex state scenarios. Logos were generated using the freemium service logo.com. The project also employs the useSound react hook to enhance user experience with different sounds for interval start and interval end.
 ## Lessons Learnt
 This project reinforced the importance of clear and concise code, especially when working with complex state management tools like Redux. It also highlighted the power of Framer Motion in creating dynamic and visually appealing user interfaces, particularly through its AnimatePresence component.
 
