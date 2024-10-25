@@ -15,15 +15,15 @@ React,
 Redux,
 Framer Motion
 
-**Frontend**: React
-**State Management**: Redux with Redux Toolkit
-**Animations**:
-react-typed: Typing animations
-framer-motion: Motion animations (FAQ section)
-**Navigation**: AnchorLink: Smooth scrolling to linked components
-**Styling**: Tailwind CSS
-**Additional Information**:
-Logos: Generated using logo.com (freemium service)
+**Frontend**: React\
+**State Management**: Redux with Redux Toolkit\
+**Animations**:\
+react-typed: Typing animations\
+framer-motion: Motion animations (FAQ section)\
+**Navigation**: AnchorLink: Smooth scrolling to linked components\
+**Styling**: Tailwind CSS\
+**Additional Information**:\
+Logos: Generated using logo.com (freemium service)\
 
 
 ## How to run the Project
