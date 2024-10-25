@@ -15,7 +15,7 @@ function Header() {
   return (
     <div className="container grid place-content-center min-w-full bg-white relative py-2">
       <AnchorLink href='#faqSection'>
-        <div className="faq absolute flex cursor-pointer right-8 items-center top-8">
+        <div className="faq lg:absolute justify-end flex cursor-pointer md:right-8 items-center md:top-8">
           <p className='underline text-2xl text-secondaryDark'>FAQ</p>
           <LiaQuestionSolid className='text-secondaryDark text-3xl' />
         </div>
@@ -28,9 +28,9 @@ function Header() {
         <TypedDisplay className="text-primary" />
         </div>
         
-        <div className="buttons flex gap-2">
+        <div className="buttons flex-col flex md:flex-row gap-2">
         <div onClick={() => dispatch(toggleSettings(true))} 
-        className='bg-secondaryDark items-center text-white cursor-pointer w-28 hover:bg-primaryLight hover:text-black hover:font-semibold rounded-lg flex gap-2 justify-between p-2'>
+        className='bg-secondaryDark items-center text-white cursor-pointer w-[175px] md:w-28 hover:bg-primaryLight hover:text-black hover:font-semibold rounded-lg flex gap-2 justify-between p-2'>
         <IoSettings className='text-2xl' />
           <p>Settings</p>
           </div>

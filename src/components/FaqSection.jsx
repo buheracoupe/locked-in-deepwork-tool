@@ -38,7 +38,7 @@ function FaqSection() {
   
   return (
     <div id='faqSection' className='h-lvh p-8'>
-        <div className="faq-container mx-auto w-[50%] ma p-2 rounded-lg shadow-lg bg-white">
+        <div className="faq-container mx-auto w-[400px] md:w-[auto] max-w-[700px] ma p-2 rounded-lg shadow-lg bg-white">
           <p className='text-4xl font-semibold mb-8 text-center text-secondaryDark'>Frequently Asked Questions</p>
           <div className='flex flex-col gap-3'>{
             faqs.map((faq) => {
@@ -53,7 +53,7 @@ function FaqSection() {
                   }
                  }
                  key={faq.id}
-                 className="flex flex-col w-[600px] mx-auto border-b-2 border-b-primaryDark p-3  gap-4">
+                 className="flex flex-col w-[300px] md:w-[600px] mx-auto border-b-2 border-b-primaryDark last:border-b-0 p-3  gap-4">
                   <div className='flex gap-2  justify-between items-center'>
                   <p className='font-semibold text-primaryDark text-lg'>{faq.question}</p>
                   { activeQuestion.question === faq.id && activeQuestion.showing ?

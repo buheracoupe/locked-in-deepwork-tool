@@ -3,8 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { changeSplit } from '../Redux/slices/currentSplitSlice'
 import { useEffect, useState } from 'react';
 import { toggleTimer, toggleSwitch } from '../Redux/slices/timerSlice';
+import useSound from 'use-sound';
+import endSound from "../Assets/sounds/end.mp3"
+import startSound from "../Assets/sounds/start.mp3"
 
 function ClockContainer() {
+    const [playEnd] = useSound(endSound)
+    const [playStart] = useSound(startSound)
     
     const dispatch = useDispatch();
     const currentSplit = useSelector(state => state.currentSplitSlice.value);
@@ -53,13 +58,14 @@ function ClockContainer() {
                 minutes: minutesRemaining,
                 seconds: secondsRemaining
             })
-            document.title = `Timer Status ${minutesRemaining}:${secondsRemaining}`
+            document.title = `Timer ${minutesRemaining}:${secondsRemaining}`
             setTotalSeconds(totalSeconds - 1)
            },1000)  
         }}else{
             currentSplit === "focus"? setTotalSeconds(userFocusTime*60) : setTotalSeconds(userRestTime*60)
             dispatch(toggleTimer(false))
             dispatch(toggleSwitch("off"))
+            playEnd()
         }
 
         return () => clearInterval(intervalId)
@@ -98,6 +104,7 @@ function ClockContainer() {
            () => {
             dispatch(toggleSwitch("on"))
             dispatch(toggleTimer(!timerState))
+            playStart()
            }
         } 
         className="buttons">
