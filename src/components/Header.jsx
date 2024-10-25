@@ -7,15 +7,20 @@ import { useDispatch } from 'react-redux';
 import { toggleSettings } from '../Redux/slices/settingsSlice';
 import { LiaQuestionSolid } from "react-icons/lia";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { changePage } from '../Redux/slices/simplePageSlice';
 
 
 function Header() {
   const dispatch = useDispatch();
 
   return (
-    <div className="container grid place-content-center min-w-full bg-white relative py-2">
+    <div id="header" className="container grid place-content-center min-w-full bg-white relative py-2">
       <AnchorLink href='#faqSection'>
-        <div className="faq lg:absolute justify-end flex cursor-pointer md:right-8 items-center md:top-8">
+        <div
+         onClick={() => {
+            dispatch(changePage(false))
+         }}
+         className="faq lg:absolute justify-end flex cursor-pointer md:right-8 items-center md:top-8">
           <p className='underline text-2xl text-secondaryDark'>FAQ</p>
           <LiaQuestionSolid className='text-secondaryDark text-3xl' />
         </div>
@@ -34,10 +39,12 @@ function Header() {
         <IoSettings className='text-2xl' />
           <p>Settings</p>
           </div>
+          <a href='https://buymeacoffee.com/' rel='noreferrer' target='_blank'>
           <div className="coffee bg-secondaryDark cursor-pointer flex items-center w-[175px] hover:bg-primaryLight hover:text-black hover:font-semibold text-white rounded-lg gap-2 justify-between p-2">
             <CiCoffeeCup className=' text-2xl' />
             <p>Buy Me a Coffee</p>
           </div>
+          </a>
           </div>
       </div>
     </div>

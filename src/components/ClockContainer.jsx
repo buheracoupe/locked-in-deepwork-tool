@@ -4,7 +4,7 @@ import { changeSplit } from '../Redux/slices/currentSplitSlice'
 import { useEffect, useState } from 'react';
 import { toggleTimer, toggleSwitch } from '../Redux/slices/timerSlice';
 import useSound from 'use-sound';
-import endSound from "../Assets/sounds/end.mp3"
+import endSound from "../Assets/sounds/end2.mp3"
 import startSound from "../Assets/sounds/start.mp3"
 
 function ClockContainer() {

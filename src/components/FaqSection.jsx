@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { motion, AnimatePresence } from 'framer-motion';
+import Footer from "./Footer"
+import { useSelector } from 'react-redux';
 
 
 const faqArray = [
@@ -35,10 +37,11 @@ const faqArray = [
 function FaqSection() {
   const [faqs, setFaqs] = useState(faqArray);
   const [activeQuestion, setActiveQuestion] = useState({question: "", showing: false})
+  const simplePage = useSelector((state)=> state.simplePage.simplePage)
   
-  return (
-    <div id='faqSection' className='h-lvh p-8'>
-        <div className="faq-container mx-auto w-[400px] md:w-[auto] max-w-[700px] ma p-2 rounded-lg shadow-lg bg-white">
+      return (
+      <div id='faqSection' className={!simplePage ? 'h-lvh flex flex-col justify-between' : "hidden"}>
+        <div className="faq-container mx-auto w-[400px] md:w-[auto] max-w-[700px] p-8 mt-6 rounded-lg shadow-lg bg-white">
           <p className='text-4xl font-semibold mb-8 text-center text-secondaryDark'>Frequently Asked Questions</p>
           <div className='flex flex-col gap-3'>{
             faqs.map((faq) => {
@@ -77,6 +80,7 @@ function FaqSection() {
             }
           </div>
         </div>
+        <Footer />
     </div>
   )
 }
